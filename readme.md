@@ -1,6 +1,18 @@
 # TLS Handshake: a secretive way to say hello
 The objective of this article is to demystify the process by which most applications exchange a secret and establish a secure communication channel in a insecure medium such as the Internet.
 
+<!-- TOC -->
+
+- [TLS Handshake: a secretive way to say hello](#tls-handshake-a-secretive-way-to-say-hello)
+    - [The need for a secret](#the-need-for-a-secret)
+    - [Asymmetric encryption](#asymmetric-encryption)
+    - [The Certificate Authority](#the-certificate-authority)
+    - [FAQ's](#faqs)
+    - [Caesar's cipher in Python](#caesars-cipher-in-python)
+    - [References](#references)
+
+<!-- /TOC -->
+
 ## The need for a secret
 Encryption is not something of the Internet age. One of the very first encryption methods we learn at whatever tech school of choice is the famous [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher), a method devised at the times of the famous Roman emperor to transmit secret war messages without disclosing it to either the messenger or anyone other than its intended audience. The process consisted in shifting the letters of the alphabet by a fixed amount in order to scramble the message. We’re not diving into any advanced mathematics here, but for the sake of example let me illustrate it with a simple message Caesar may want to send to one of his generals, Gen. Maximus:
 
@@ -18,9 +30,9 @@ PS: the Caesar Cipher is easily broken and in modern practice offers no communic
 The way asymmetric encryption solves the previous problem comes from the fact that the secret it uses to scramble/encrypt a clear text message is different than the one it uses to unscramble/decrypt it. The first dubbed a public key and the second a private key. The mechanics of the process go as follows. We’ll keep using Caesar and General Maximus for the sake of simplicity:
 1. Caesar signals he wishes to communicate.
 2. Maximus sends a public key, so that Caesar can encrypt a message containing a secret and send it back.
-3. Maximus uses his private key to reveal the secret both him and Caesar will use in all the next message exchanges.
+3. Maximus uses his private key to reveal the secret both him and Caesar will use in all the next message exchanges, for example 4.
 
-The above process is what a *TLS Handshake is: an exchange of messages that serves the purpose of securely exchanging a secret between 2 parties.*
+The above process is what a *TLS Handshake is: an exchange of messages that serves the purpose of securely exchanging a secret between 2 parties.* If the message is intercepted between steps 2 and 3, the secret (number 4) is still safe since only Maximus holds the private key that reveals it.
 
 ## The Certificate Authority
 What if the initial handshake message from Caesar had arrived to someone from the enemy army? How could he be sure that he was talking to Maximus on the other end? Let's assume Maximus could use a Roman empire seal of authenticity that he was sending along with his message and that was impossible for the enemy to forge. That seal established a *trust relationship* between Caesar and whoever was on the other end of the line. And that is the role of a *Certification Authority (CA): a 3rd party one can trust (the Roman empire's seal emitter) that attests that the public key being used in the handshake process belongs to a specific server (Maximus), so that the party interested in the communication (Caesar) can initiate the secret exchange for futher messages.*
