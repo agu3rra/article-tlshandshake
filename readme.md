@@ -24,11 +24,11 @@ Assuming the secret text shift is 6, the letter A is replaced by G, B by H and s
 
 As you may have noticed, both the sender and the recipient need to know a common secret. In this case, both have to know that the message is using shifted text letters by a factor of 6. This is one of the most rudimentary forms of symmetric encryption, a method in which **the same secret serves to both scramble and unscramble the message**. So the next obvious problem becomes: How do I exchange a secret between two communication parties using an insecure channel? Enter Asymmetric encryption, also known as [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography)!
 
-PS: the Caesar Cipher is easily broken and in modern practice offers no communications security at all. Again, we're using it here for the simplicity of the example.
+PS: the Caesar Cipher is easily broken and in modern practice offers no communications security at all. Again, we're using it here to keep the concept simple.
 
 ## Asymmetric encryption
-The way asymmetric encryption solves the previous problem comes from the fact that the secret it uses to scramble/encrypt a clear text message is different than the one it uses to unscramble/decrypt it. The first dubbed a public key and the second a private key. The mechanics of the process go as follows. We’ll keep using Caesar and General Maximus for the sake of simplicity:
-1. Caesar signals he wishes to communicate.
+The way asymmetric encryption solves the previous problem comes from the fact that the secret it uses to scramble/encrypt a clear text message is different than the one it uses to unscramble/decrypt it. The first dubbed a public key and the second a private key. The mechanics of the process go as follows. We’ll keep using the Caesar and General Maximus example:
+1. Caesar signals he wishes to communicate.'
 2. Maximus sends a public key, so that Caesar can encrypt a message containing a secret and send it back.
 3. Maximus uses his private key to reveal the secret both him and Caesar will use in all the next message exchanges, for example 4.
 
