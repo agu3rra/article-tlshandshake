@@ -22,7 +22,7 @@ Plain text message:
 Assuming the secret text shift is 6, the letter A is replaced by G, B by H and so on. So the encrypted text (ciphered message) would look like this (removing spaces and ponctuation):  
 > JobojkznkgxseotzcugjbgtikgtjuazlrgtqznksutznkxomnzOcorrgjbgtikutznkrklzlrgtqlxusznkcuujymkzzotmznksheyaxvxoyk
 
-As you may have noticed, both the sender and the recipient need to know a common secret. In this case, both have to know that the message is using shifted text letters by a factor of 6. This is one of the most rudimentary forms of symmetric encryption, a method in which *the same secret serves to both scramble and unscramble the message*. So the next obvious problem becomes: How do I exchange a secret between two communication parties using an insecure channel? Enter Asymmetric encryption, also known as [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography)!
+As you may have noticed, both the sender and the recipient need to know a common secret. In this case, both have to know that the message is using shifted text letters by a factor of 6. This is one of the most rudimentary forms of symmetric encryption, a method in which **the same secret serves to both scramble and unscramble the message**. So the next obvious problem becomes: How do I exchange a secret between two communication parties using an insecure channel? Enter Asymmetric encryption, also known as [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography)!
 
 PS: the Caesar Cipher is easily broken and in modern practice offers no communications security at all. Again, we're using it here for the simplicity of the example.
 
@@ -32,10 +32,10 @@ The way asymmetric encryption solves the previous problem comes from the fact th
 2. Maximus sends a public key, so that Caesar can encrypt a message containing a secret and send it back.
 3. Maximus uses his private key to reveal the secret both him and Caesar will use in all the next message exchanges, for example 4.
 
-The above process is what a *TLS Handshake is: an exchange of messages that serves the purpose of securely exchanging a secret between 2 parties.* If the message is intercepted between steps 2 and 3, the secret (number 4) is still safe since only Maximus holds the private key that reveals it.
+The above process is what a **TLS Handshake is: an exchange of messages that serves the purpose of securely exchanging a secret between 2 parties.** If the message is intercepted between steps 2 and 3, the secret (number 4) is still safe since only Maximus holds the private key that reveals it.
 
 ## The Certificate Authority
-What if the initial handshake message from Caesar had arrived to someone from the enemy army? How could he be sure that he was talking to Maximus on the other end? Let's assume Maximus could use a Roman empire seal of authenticity that he was sending along with his message and that was impossible for the enemy to forge. That seal established a *trust relationship* between Caesar and whoever was on the other end of the line. And that is the role of a *Certification Authority (CA): a 3rd party one can trust (the Roman empire's seal emitter) that attests that the public key being used in the handshake process belongs to a specific server (Maximus), so that the party interested in the communication (Caesar) can initiate the secret exchange for futher messages.*
+What if the initial handshake message from Caesar had arrived to someone from the enemy army? How could he be sure that he was talking to Maximus on the other end? Let's assume Maximus could use a Roman empire seal of authenticity that he was sending along with his message and that was impossible for the enemy to forge. That seal established a **trust relationship** between Caesar and whoever was on the other end of the line. And that is the role of a *Certification Authority (CA): a 3rd party one can trust (the Roman empire's seal emitter) that attests that the public key being used in the handshake process belongs to a specific server (Maximus), so that the party interested in the communication (Caesar) can initiate the secret exchange for futher messages.*
 
 ## FAQ's
 1. Why don't we just use asymmetric encryption?  
