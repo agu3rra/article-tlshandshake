@@ -1,9 +1,7 @@
 ![Cartoon by Phil Johnson](encryptionByPhil.jpeg)  
 Cartoon by [Phil Johnson](https://twitter.com/@chumworth)
 
-# TLS Handshake: a secretive way to say hello
-The objective of this article is to demystify the process by which most applications exchange a secret and establish a secure communication channel in an insecure medium such as the Internet. It also attempts to shed some light in the role a Certificate Authority (CA) plays in the process.
-
+**Summary**:  
 <!-- TOC -->
 
 - [TLS Handshake: a secretive way to say hello](#tls-handshake-a-secretive-way-to-say-hello)
@@ -15,6 +13,9 @@ The objective of this article is to demystify the process by which most applicat
     - [References](#references)
 
 <!-- /TOC -->
+
+# TLS Handshake: a secretive way to say hello
+The objective of this article is to demystify the process by which most applications exchange a secret and establish a secure communication channel in an insecure medium such as the Internet. It also attempts to shed some light in the role a Certificate Authority (CA) plays in the process.
 
 ## The need for a secret
 Encryption is not something of the Internet age. One of the very first encryption methods we learn at whatever tech school of choice is the famous [Caesar Cipher](https://en.wikipedia.org/wiki/Caesar_cipher), a method devised at the times of the famous Roman emperor to transmit secret war messages without disclosing it to either the messenger or anyone other than its intended audience. The process consisted in shifting the letters of the alphabet by a fixed amount in order to scramble the message. We’re not diving into any advanced mathematics here, but for the sake of example let me illustrate it with a simple message Caesar may want to send to one of his generals, Gen. Maximus:
